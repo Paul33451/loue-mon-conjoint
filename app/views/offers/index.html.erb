@@ -1,22 +1,21 @@
 <div class="container">
-      <div>
-        <h1>Toutes les annonces disponibles</h1>
-      </div>
       <div class="row justify-content-center">
-        <div class="row">
-          <div class="col-12 col-sm-8">
-            <div class="card-trip">
-              <img src="https://cdn.pixabay.com/photo/2016/02/28/12/00/gift-1226848_960_720.jpg" />
-              <div class="card-trip-infos">
-                <div>
-                  <h2>Maxou</h2>
-                  <p>Il se propose de cuisine pour vous !</p>
+        <h1>Toutes les annonces disponibles</h1>
+          <div class="col-12 col-sm-3 col-lg-12">
+            <% @offers.each do |offer| %>
+              <div class="card-trip mb-4">
+                <img src="https://cdn.pixabay.com/photo/2016/02/28/12/00/gift-1226848_960_720.jpg" />
+                <div class="card-trip-infos">
+                  <div>
+                    <h2><%= offer.title %></h2>
+                    <p> <%= offer.description %></p>
+                  </div>
+                  <h2 class="card-trip-pricing"> <%= offer.price %>€</h2>
+                  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
                 </div>
-                <h2 class="card-trip-pricing">20€/h</h2>
-                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
               </div>
-            </div>
+            <% end %>
           </div>
-        </div>
+
       </div>
 </div>
