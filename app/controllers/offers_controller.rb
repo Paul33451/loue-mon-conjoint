@@ -5,8 +5,13 @@ class OffersController < ApplicationController
 
   end
 
-  # def show
-  #   @offer = Offer.find(params[:id])
-  # end
-  skip_before_action :authenticate_user!, only: [:index]
+  def show
+    @offer = Offer.find(params[:id])
+
+  end
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
+  def offer_params
+    params.require(:offer).permit(:title, :description, :price, :photo)
+  end
 end
