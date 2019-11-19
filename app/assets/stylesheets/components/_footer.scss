@@ -1,0 +1,23 @@
+.card-deck {
+  background-color: white;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid $salmon1;
+}
+
+.card-deck > .card {
+  border: none;
+  color: $salmon1;
+  text-align: center
+}
+
+.card-deck > .card >.fas, .far{
+  font-size: 27px
+}
+
+.card-deck > .card >.card-title {
+  font-size: 14px;
+  padding-top: 10px
+}
+
+
