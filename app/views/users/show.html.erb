@@ -4,7 +4,8 @@
 <div class="tab">
   <button class="tablinks active">Profil</button>
   <button class="tablinks">Offers</button>
-  <button class="tablinks">Tokyo</button>
+  <button class="tablinks">Mission</button>
+  <button class="tablinks">Reservations</button>
 </div>
 
 <div id="Profil" class="tabcontent">
@@ -19,13 +20,73 @@
 </div>
 
 <div id="Offers" class="tabcontent not-displayed">
-  <h3>My offers</h3>
-  <p>
-
-  </p>
+  <h3>Mes offres</h3>
+  <% if(@user.offers != []) %>
+    <% @user.offers.each do |offer| %>
+      <% p offer %>
+      <div class="card-product">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos">
+          <h2><%= offer.title %></h2>
+          <p><%= offer.description %></p>
+        </div>
+        <%= link_to "Mettre à jour", edit_offer_path(offer.id), class:"btn" %>
+      </div>
+    <% end %>
+  <% else %>
+    <p>Vous n'avez pas d'offre en cours !</p>
+  <% end %>
+  <%= link_to "Publier une nouvelle offre", new_offer_path, class:"btn" %>
 </div>
 
-<div id="Tokyo" class="tabcontent not-displayed">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
+<div id="Mission" class="tabcontent not-displayed">
+  <h3>Mes missions</h3>
+  <% if(@user.offers != []) %>
+    <% @user.offers.each do |offer| %>
+      <div class="card text-center">
+        <div class="card-header">
+          <%= offer.category %>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Mission</h5>
+          <p class="card-text">
+            <% offer.bookings.each do |booking| %>
+              <ul>
+                <li><%= booking.description %></li>
+                <li><%= booking.adress %></li>
+              </ul>
+            <% end %>
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+        <div class="card-footer text-muted">
+          2 days ago
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p>Vous n'avez pas d'offre en cours !</p>
+    <%= link_to "Publier une nouvelle offre", new_offer_path, class:"btn" %>
+  <% end %>
 </div>
+
+<div id="Reservations" class="tabcontent not-displayed">
+  <h3>Vos réservations</h3>
+  <% if(@user.bookings != []) %>
+    <% @user.bookings.each do |booking| %>
+      <div class="card-product">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos">
+          <h2><%= booking.description %></h2>
+          <p><%= booking.adress %></p>
+          <p><%= booking.date %></p>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p>Vous n'avez pas de réservation !</p>
+  <% end %>
+  <%= link_to "Trouver un conjoint", root_path, class:"btn" %>
+</div>
+
