@@ -1,0 +1,12 @@
+<h2><%= @booking.offer.title %></h2>
+
+<p><%= @booking.adress %></p>
+<% if @booking.status %>
+  <p>Acceptée</p>
+<% else %>
+  <p>En attente</p>
+<% end %>
+<p>Dans <%= @booking.date.day - Date.today.day if @booking.date %> jour(s)</p>
+
+<%= link_to 'Accepter', booking_accept_path(@booking), method:'patch' %>
+<%= link_to 'Supprimer', booking_path, method:'delete' %>
