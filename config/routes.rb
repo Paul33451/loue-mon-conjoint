@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :users, only: [:show]
-  resources :bookings, only: [:destroy, :update]
+  resources :bookings, only: [:destroy]
 
   resources :offers do
-    resources :bookings, only: [:new, :create]
+    resources :bookings, only: [:new, :create, :show]
   end
+
+  patch '/bookings/:id', to: 'bookings#accept', as: 'booking_accept'
 end
