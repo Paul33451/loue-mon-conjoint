@@ -7,11 +7,11 @@
                 <img src="https://cdn.pixabay.com/photo/2016/02/28/12/00/gift-1226848_960_720.jpg" />
                 <div class="card-trip-infos">
                   <div>
-                    <h2><%= offer.title %></h2>
                     <p> <%= offer.description %></p>
+                    <h2><%= offer.user.username %></h2>
                   </div>
                   <h2 class="card-trip-pricing"> <%= offer.price %>€</h2>
-                  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                  <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> -->
                 </div>
               </div>
             <% end %>
