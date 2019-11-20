@@ -4,11 +4,29 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.card-trip:hover {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 25px rgba(0,0,0,0.5);
+}
+
+
 .card-trip > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
+  filter: brightness(90%)
 }
+
+.card-trip > img:hover {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(100%)
+
+}
+
+
 
 .card-trip h2 {
   font-size: 16px;
@@ -32,6 +50,26 @@
 }
 
 .card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 50px;
+  top: 20px;
+}
+
+.link-card{
+text-decoration:none;
+color:#323131;
+}
+
+.link-card:hover{
+text-decoration:none;
+color:#323131;
+}
+
+.card-trip-infos{
+  position: relative;
+}
+
+.card-trip-pricing{
   position: absolute;
   right: 16px;
   top: -20px;
