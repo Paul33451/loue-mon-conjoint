@@ -1,8 +1,10 @@
 .footer-container {
   background-color: white;
   margin-top: 10px;
-  padding-top: 10px;
+  padding-top: 5px;
   border-top: 1px solid $salmon1;
+  height: 70px;
+  z-index: 1000;
 }
 
 .footer-container > .card {
