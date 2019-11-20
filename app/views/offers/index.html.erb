@@ -1,17 +1,19 @@
 <div class="container">
       <div class="row justify-content-center">
-        <h1>Toutes les annonces disponibles</h1>
-          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-10">
+          <h1 id="title-page-offer">Toutes les annonces disponibles: <span id="category-title-orange">Bricolage</span></h1>
+        </div>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-10">
             <% @offers.each do |offer| %>
               <%= link_to offer_path(offer), class:"link-card" do %>
               <div class="card-trip mb-4">
                 <img src="https://cdn.pixabay.com/photo/2016/02/28/12/00/gift-1226848_960_720.jpg" />
                 <div class="card-trip-infos">
                   <div>
-                    <p> <%= offer.description %></p>
-                    <h2><%= offer.user.username %></h2>
+                    <p> <%= offer.user.username %></p>
+                    <h2><%= offer.title %></h2>
                   </div>
-                  <h2 class="card-trip-pricing"> <%= offer.price %>€</h2>
+                  <span class="card-trip-pricing"> <%= offer.price %>€</span>
                   <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> -->
                 </div>
               </div>

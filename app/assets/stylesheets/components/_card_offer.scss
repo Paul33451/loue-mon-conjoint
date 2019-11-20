@@ -70,8 +70,22 @@ color:#323131;
 }
 
 .card-trip-pricing{
-  position: absolute;
+  position: relative;
   right: 16px;
-  top: -20px;
+  top: 0px;
   width: 40px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #f38c73;
+}
+
+#title-page-offer{
+  font-size: 30px;
+  text-align: center;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+#category-title-orange{
+  color:#f38c73;
 }
