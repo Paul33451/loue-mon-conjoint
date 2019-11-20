@@ -1,18 +1,30 @@
 
-  <div class="form">
+
+  <div class="form m-2">
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <h2>Log in</h2>
+  <h2>Vous avez déjà un compte ? </h2>
+  <h3 class= "mt-2 mb-2">Merci de vous identifier </h3>
       <%= f.input :email,
                   required: false,
                   autofocus: true,
                   input_html: { autocomplete: "email" } %>
-      <%= f.input :password,
-                  required: false,
+      <%= f.input :password, label: "Mot de passe", required: false,
                   input_html: { autocomplete: "current-password" } %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-
-      <%= f.button :submit, "Log in" %>
+      <%= f.input :remember_me, label: "Se souvenir de moi", as: :boolean if devise_mapping.rememberable? %>
+      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+        <%= link_to "Mot de passe oublié?", new_password_path(resource_name), class:"btn-light" %>
+      <% end %>
+      <br>
+      <br>
+      <%= f.button :submit, "Connexion !" %>
     <% end %>
   </div>
 
-  <%= render "devise/shared/links" %>
+  <div class="form m-2">
+      <h2>Pas encore de compte ? </h2>
+      <h3 class="pt-2 pb-2"> On n'attend que vous !</h3>
+      <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+      <%= link_to "Inscription !", new_registration_path(resource_name), class:"btn" %><br />
+    <% end %>
+  </div>
+
