@@ -1,10 +1,9 @@
-<div class="p-4">
-  <h2>Sign up</h2>
 
+
+  <div class="form">
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
-
-  <div class="form-inputs">
+<h2>Sign up</h2>
     <span class='d-flex justify-content-between'> <%= f.input :first_name %>
     <%= f.input :last_name %> </span>
     <%= f.input :email,
@@ -24,12 +23,9 @@
     <%= f.input :photo_cache, as: :hidden %>
 
     <div class="d-flex justify-content-between">
-      <span><%= render "devise/shared/links" %></span>
-      <span class="form-actions btn btn-primary btn-m">
-        <%= f.button :submit, "Sign up" %>
-      </span>
+        <%= link_to 'Login', new_user_session_path, class: 'btn' %>
+        <%= f.button :submit, "Sign up", class: "btn"%>
     </div>
-  </div>
   </div>
 <% end %>
 
