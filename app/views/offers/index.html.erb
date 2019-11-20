@@ -1,7 +1,7 @@
 <div class="container">
       <div class="row justify-content-center">
         <div class="col-12 col-sm-12 col-md-12 col-lg-10">
-          <h1 id="title-page-offer">Toutes les annonces disponibles: <span id="category-title-orange">Bricolage</span></h1>
+          <h1 id="title-page-offer">Toutes les annonces disponibles: <span id="category-title-orange"><%= params[:query] %></span></h1>
         </div>
           <div class="col-12 col-sm-12 col-md-12 col-lg-10">
             <% @offers.each do |offer| %>
