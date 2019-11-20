@@ -56,14 +56,19 @@
                   <li><%= booking.description %></li>
                   <li><%= booking.adress %></li>
                 </ul>
-              <% end %>
+
             </p>
-            <button type="button" class="btn btn-success">Success</button>
-            <button type="button" class="btn btn-danger">Danger</button>
+            <%= link_to booking_accept_path(booking), method:'patch' do %>
+            <button type="button" class="btn btn-success">Accepter</button>
+            <% end %>
+            <%= link_to booking_path(booking), method:'delete' do %>
+            <button type="button" class="btn btn-danger">Refuser</button>
+            <% end %>
           </div>
           <div class="card-footer text-muted">
             2 days ago
           </div>
+          <% end %>
         </div>
       <% end %>
     <% else %>

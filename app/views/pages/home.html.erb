@@ -4,46 +4,64 @@
   <div class="container">
     <h1>Loue mon conjoint </h1>
     <p>Proposez et trouvez un conjoint pour tous vos services à domicile.</p>
-    <a class="btn" href="#">Publier une annonce</a>
+    <a class="btn" href="/offers/new">Publier une annonce</a>
   </div>
 </div>
 
 <div class="category-container">
-  <div class="cards-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-    url(asset-path('/images/bricolage.png')) ">
-    Plomberie
-  </div>
+  <%= link_to offers_path do %>
+    <div class="cards-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+      url(asset-path('/images/bricolage.png')) ">
+      Plomberie
+    </div>
+  <% end %>
 
+  <%= link_to offers_path do %>
   <div class="cards-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../../assets/images/bricolage.png')">
     Bricolage
   </div>
+  <% end %>
 
+  <%= link_to offers_path do %>
   <div class="cards-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
     Jardinage
   </div>
+  <% end %>
 
+  <%= link_to offers_path do %>
   <div class="cards-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
     Electricite
   </div>
+  <% end %>
 
+  <%= link_to offers_path do %>
   <div class="cards-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
     Demenagement
   </div>
+  <% end %>
 
+  <%= link_to offers_path do %>
   <div class="cards-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
     Couture
   </div>
+  <% end %>
 
+  <%= link_to offers_path do %>
   <div class="cards-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
    Decoration
   </div>
+  <% end %>
 
+  <%= link_to offers_path do %>
   <div class="cards-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
    Petits travaux
   </div>
+  <% end %>
 
+  <%= link_to offers_path do %>
   <div class="cards-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
     Electromenager
   </div>
+  <% end %>
 
 </div>
