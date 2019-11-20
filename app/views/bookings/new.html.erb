@@ -1,4 +1,4 @@
-<div class="p-4">
+<div class="form">
 <h2>Réserver <%= @offer.title %></h2>
 
 <%= simple_form_for [@offer, @booking] do |f| %>
@@ -6,6 +6,6 @@
   <%= f.input :date, as: :date, start_year: Date.today.year,
                              end_year: Date.today.year + 90, discard_year: true,
                              order: [:day, :month, :year] %>
-  <%= f.submit "Reserver", class: "w-100 btn btn-primary" %>
+  <%= f.submit "Reserver", class: "btn" %>
 <% end %>
 </div>
