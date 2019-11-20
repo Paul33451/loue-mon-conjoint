@@ -3,6 +3,9 @@
   margin-top: 10px;
   padding-top: 10px;
   border-top: 1px solid $salmon1;
+  display: flex;
+  justify-content: space-between;
+
 }
 
 .card-deck > .card {

@@ -1,0 +1,53 @@
+.image-offer {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-top:20px
+}
+
+.image-offer > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+h2 {
+  font-size: 19px;
+  font-weight: bold;
+  margin: 0;
+}
+
+h3 {
+  color:black;
+  text-decoration-color: red;
+  border-bottom: solid 1px #dbdbdb;
+  font-size: 15px;
+}
+
+p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.infos-offer {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.description_offer{
+  padding: 16px;
+  position: relative;
+}
+
+.price-offer{
+   padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
