@@ -1,8 +1,12 @@
 
-<h1>Welcome <strong><%= @user.username %></strong></h1>
+<div class="banner profil-banner mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.pixabay.com/photo/2016/02/19/11/32/tools-1209764_960_720.jpg);">
+  <div class="container">
+    <h1>Welcome <strong><%= @user.username %></strong>!</h1>
+  </div>
+</div>
 
 <div class="container">
-  <div class="tab">
+  <div class="tab d-flex justify-content-between">
     <button class="tablinks active">Profil</button>
     <button class="tablinks">Offers</button>
     <button class="tablinks">Mission</button>
@@ -18,6 +22,7 @@
       <p>Email : <%= @user.email %></p>
       <p>Téléphone : <%= @user.phone_number %></p>
     </p>
+    <%= link_to "Modifier", edit_user_registration_path, class:"btn mt-4" %>
   </div>
 
   <div id="Offers" class="tabcontent not-displayed">
@@ -59,10 +64,10 @@
 
             </p>
             <%= link_to booking_accept_path(booking), method:'patch' do %>
-            <button type="button" class="btn btn-success">Accepter</button>
+            <button type="button" class="btn">Accepter</button>
             <% end %>
             <%= link_to booking_path(booking), method:'delete' do %>
-            <button type="button" class="btn btn-danger">Refuser</button>
+            <button type="button" class="btn">Refuser</button>
             <% end %>
           </div>
           <div class="card-footer text-muted">
