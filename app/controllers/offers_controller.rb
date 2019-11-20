@@ -4,8 +4,11 @@ skip_before_action :authenticate_user!, only: [:index, :show]
 @categories = ["Plomberie", "Bricolage", "Jardinage", "Electricite", "Peinture", "Demenagement", "Couture", "Decoration", "Montage meubles", "Electromenager"]
 
   def index
-    @offers = Offer.all
-
+    if params[:query].present?
+      @offers = Offer.where(category: params[:query])
+    else
+      @offers = Offer.all
+    end
   end
 
   def show
