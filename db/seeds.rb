@@ -7,7 +7,7 @@ alice = User.new(email: "alice@gmail.com", password: "azerty", username: "Aliço
 
 bob = User.new(email: "bob@gmail.com", password: "azerty", username: "Boby", first_name: "bob", last_name: "Lebricoleur", phone_number:"06.99.00.28.60")
 
-charlie = User.new(email: "charlie@gmail.com", password: "azerty", username: "chaleazy", first_name: "charlie", last_name: "Ztheron", phone_number:"06.99.00.28.60")
+charlie = User.new(email: "charlie@gmail.com", password: "azerty", username: "charleazy", first_name: "charlie", last_name: "Ztheron", phone_number:"06.99.00.28.60")
 
 dede = User.new(email: "Dédé@gmail.com", password: "azerty", username: "Dédé", first_name: "Dédé", last_name: "Lecochon", phone_number:"06.99.00.28.60")
 
@@ -44,9 +44,9 @@ booking1 = Booking.new(adress: "26 rue sanche de pomiers, Bordeaux", status: fal
 
 booking2 = Booking.new(adress: "Sur la lune", status: false, offer: offer2, user:eric, description: "Peindre une chambre" )
 
-booking3 = Booking.new(adress: "21 rue du lac", status: true, offer: offer3, user:eric, description: "Plomberie pour la salle de bain" )
+booking3 = Booking.new(adress: "21 rue du lac", status: false, offer: offer3, user:eric, description: "Plomberie pour la salle de bain" )
 
-booking4 = Booking.new(adress: "67 cours de chez ta Grand Mere", status: true, offer: offer3, user:alice, description: "Plomberie pour les Waters" )
+booking4 = Booking.new(adress: "67 cours de chez ta Grand Mere", status: false, offer: offer3, user:alice, description: "Plomberie pour les Waters" )
 
 booking1.save!
 booking2.save!
