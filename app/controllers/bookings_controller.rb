@@ -27,7 +27,8 @@ class BookingsController < ApplicationController
 
   def accept
     @booking.status = true
-    render :show
+    @booking.save
+    redirect_to user_path(@booking.offer.user_id)
   end
 
   private

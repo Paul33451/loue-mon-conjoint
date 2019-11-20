@@ -36,7 +36,7 @@
             <h2><%= offer.title %></h2>
             <p><%= offer.description %></p>
           </div>
-          <%= link_to "Mettre à jour", edit_offer_path(offer.id), class:"btn" %>
+          <%= link_to "Mettre à jour", edit_offer_path(offer.id), class:"btn mr-3" %>
         </div>
       <% end %>
     <% else %>
@@ -49,32 +49,34 @@
     <h3>Mes missions</h3>
     <% if(@user.offers != []) %>
       <% @user.offers.each do |offer| %>
-        <div class="card text-center">
-          <div class="card-header">
-            <%= offer.category %>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Mission</h5>
-            <p class="card-text">
-              <% offer.bookings.each do |booking| %>
-                <ul>
-                  <li><%= booking.description %></li>
-                  <li><%= booking.adress %></li>
-                </ul>
+        <% offer.bookings.each do |booking| %>
+          <div class="card text-center mb-4">
+            <div class="card-header">
+              <%= offer.category %>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Mission</h5>
+              <p class="card-text">
+                  <ul>
+                    <li><%= booking.description %></li>
+                    <li><%= booking.adress %></li>
+                  </ul>
+              </p>
 
-            </p>
-            <%= link_to booking_accept_path(booking), method:'patch' do %>
-            <button type="button" class="btn">Accepter</button>
-            <% end %>
-            <%= link_to booking_path(booking), method:'delete' do %>
-            <button type="button" class="btn">Refuser</button>
-            <% end %>
+              <% if booking.status %>
+                <p>mission acceptée !</p>
+              <% else %>
+                <%= link_to "Accepter", booking_accept_path(booking), method:"patch", class:"btn" %>
+              <% end %>
+              <%= link_to booking_path(booking), method:'delete' do %>
+                <button type="button" class="btn">Refuser</button>
+              <% end %>
+            </div>
+            <div class="card-footer text-muted">
+              2 days ago
+            </div>
           </div>
-          <div class="card-footer text-muted">
-            2 days ago
-          </div>
-          <% end %>
-        </div>
+        <% end %>
       <% end %>
     <% else %>
       <p>Vous n'avez pas d'offre en cours !</p>
