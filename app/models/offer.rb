@@ -3,11 +3,11 @@ class Offer < ApplicationRecord
   belongs_to :user
 
   mount_uploader :photo, PhotoUploader
-  
+
   @categories = ["Plomberie", "Bricolage", "Jardinage", "Electricite", "Peinture", "Demenagement", "Couture", "Decoration", "Montage meubles", "Electromenager"]
   validates :category, inclusion: { in: @categories }
 
-  
+
   # validates :title, presence: true
   # validates :availability, presence: true
   # validates :price, presence: true

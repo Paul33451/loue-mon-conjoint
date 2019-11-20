@@ -1,6 +1,8 @@
 class OffersController < ApplicationController
 skip_before_action :authenticate_user!, only: [:index, :show]
-  
+
+@categories = ["Plomberie", "Bricolage", "Jardinage", "Electricite", "Peinture", "Demenagement", "Couture", "Decoration", "Montage meubles", "Electromenager"]
+
   def index
     @offers = Offer.all
 
@@ -9,10 +11,18 @@ skip_before_action :authenticate_user!, only: [:index, :show]
   def show
     @offer = Offer.find(params[:id])
   end
-  
+
+  def new
+    @offer = Offer.new
+  end
+
   def create
     @offer = Offer.new(offer_params)
-    @offer.save
+    if @offer.save
+     redirect_to offer_path(@offer)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -21,7 +31,11 @@ skip_before_action :authenticate_user!, only: [:index, :show]
 
   def update
     @offer = Offer.find(params[:id])
-    @offer.update(offer_params)
+    if @offer.update(offer_params)
+      redirect_to offer_path(@offer)
+    else
+      render :edit
+    end
   end
 
   def destroy
