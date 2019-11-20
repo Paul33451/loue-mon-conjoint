@@ -21,7 +21,6 @@ skip_before_action :authenticate_user!, only: [:index, :show]
 
   def create
     @offer = Offer.new(offer_params)
-    @offer.user = current_user
     if @offer.save
      redirect_to offer_path(@offer)
     else
