@@ -7,8 +7,8 @@
 
   <div class="offer-header d-flex justify-content-between p-2">
     <div class="offer-photo">
-      <% if @offer.user.avatar.present? %>
-        <%= cl_image_tag @offer.user.avatar, class: "offer-photo"%>
+      <% if @offer.user.photo.present? %>
+        <%= cl_image_tag @offer.user.photo, class: "offer-photo"%>
       <% else %>
         <img src="https://image.flaticon.com/icons/svg/126/126486.svg"/>
       <% end %>
@@ -32,7 +32,7 @@
 
 <div class="realisation-photo">
   <% if @offer.user.photo.present? %>
-    <%= cl_image_tag @offer.user.avatar, class: "realisation-photo" %>
+    <%= cl_image_tag @offer.user.photo, class: "realisation-photo" %>
   <% else %>
   <img src="https://images.pexels.com/photos/33343/building-joy-planning-plans.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", class="realisation-photo"/>
   <% end %>
