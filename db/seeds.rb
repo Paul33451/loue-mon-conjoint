@@ -25,11 +25,11 @@ puts "==========================="
 puts "Creating Offers"
 puts "===========================@"
 
-offer1 = Offer.new(title: "Bricolage petits travaux", description: "Bob Lebricoleur Bricole", availability: "Le weekend", price: "12€/h", active: true, place:"Bordeaux", category: "Bricolage", user: bob)
+offer1 = Offer.new(title: "Bricolage petits travaux", description: "Bob Lebricoleur Bricole", price: "12€/h", active: true, place:"Bordeaux", category: "Bricolage", user: bob)
 
-offer2 = Offer.new(title: "Peinture", description: "Alice peint toutes pieces", availability: "Le weekend", price: "9€/h", active: true, place:"Paris", category: "Bricolage", user: alice)
+offer2 = Offer.new(title: "Peinture", description: "Alice peint toutes pieces", price: "9€/h", active: true, place:"Paris", category: "Bricolage", user: alice)
 
-offer3 = Offer.new(title: "Plomberie", description: "Charlie fait de la plomberie (en plus ça rime !)", availability: "Le weekend", price: "157€/h", active: true, place:"Brétigny sur Orge", category: "Plomberie", user: charlie)
+offer3 = Offer.new(title: "Plomberie", description: "Charlie fait de la plomberie (en plus ça rime !)", price: "157€/h", active: true, place:"Brétigny sur Orge", category: "Plomberie", user: charlie)
 
 offer1.save!
 offer2.save!
