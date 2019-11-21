@@ -1,6 +1,6 @@
 
 
-  <div class="form m-2">
+  <div class="form">
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <h2>Vous avez déjà un compte ? </h2>
   <h3 class= "mt-2 mb-2">Merci de vous identifier </h3>
@@ -20,7 +20,7 @@
     <% end %>
   </div>
 
-  <div class="form m-2">
+  <div class="form">
       <h2>Pas encore de compte ? </h2>
       <h3 class="pt-2 pb-2"> On n'attend que vous !</h3>
       <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
