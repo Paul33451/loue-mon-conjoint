@@ -3,4 +3,6 @@ import { openCity } from '../components/togglable_vertical_tabs';
 
 import { loadDynamicBannerText } from '../components/banner';
 
-loadDynamicBannerText();
+if (window.location.pathname === "/") {
+  loadDynamicBannerText();
+}
