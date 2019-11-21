@@ -11,7 +11,7 @@ skip_before_action :authenticate_user!, only: [:index, :show]
           lat: offer.latitude,
           lng: offer.longitude,
           infoWindow: render_to_string(partial: "info_window", locals: { offer: offer }),
-          image_url: helpers.asset_url('picto_balai')
+          image_url: helpers.asset_url('picto_balai.png')
         }
       end
     elsif params[:query].present?
@@ -21,7 +21,7 @@ skip_before_action :authenticate_user!, only: [:index, :show]
           lat: offer.latitude,
           lng: offer.longitude,
           infoWindow: render_to_string(partial: "info_window", locals: { offer: offer }),
-          image_url: helpers.asset_url('picto_balai')
+          image_url: helpers.asset_url('picto_balai.png')
         }
       end
     else
@@ -31,7 +31,7 @@ skip_before_action :authenticate_user!, only: [:index, :show]
           lat: offer.latitude,
           lng: offer.longitude,
           infoWindow: render_to_string(partial: "info_window", locals: { offer: offer }),
-          image_url: helpers.asset_url('picto_balai')
+          image_url: helpers.asset_url('picto_balai.png')
         }
       end
     end
