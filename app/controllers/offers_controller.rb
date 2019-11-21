@@ -4,13 +4,36 @@ skip_before_action :authenticate_user!, only: [:index, :show]
 @categories = ["Plomberie", "Bricolage", "Jardinage", "Electricite", "Peinture", "Demenagement", "Couture", "Decoration", "Montage meubles", "Electromenager"]
 
   def index
-
     if params[:keyword].present?
-      @offers = Offer.where("title ILIKE ?", "%#{params[:keyword]}%")
+      @offers = Offer.geocoded.where("title ILIKE ?", "%#{params[:keyword]}%")
+      @markers = @offers.map do |offer|
+        {
+          lat: offer.latitude,
+          lng: offer.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { offer: offer }),
+          image_url: helpers.asset_url('picto_balai')
+        }
+      end
     elsif params[:query].present?
-      @offers = Offer.where(category: params[:query])
+      @offers = Offer.geocoded.where(category: params[:query])
+      @markers = @offers.map do |offer|
+        {
+          lat: offer.latitude,
+          lng: offer.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { offer: offer }),
+          image_url: helpers.asset_url('picto_balai')
+        }
+      end
     else
-      @offers = Offer.all
+      @offers = Offer.geocoded.all
+      @markers = @offers.map do |offer|
+        {
+          lat: offer.latitude,
+          lng: offer.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { offer: offer }),
+          image_url: helpers.asset_url('picto_balai')
+        }
+      end
     end
   end
 
@@ -54,7 +77,7 @@ skip_before_action :authenticate_user!, only: [:index, :show]
   private
 
   def offer_params
-    params.require(:offer).permit(:title, :description, :availability, :price, :active, :place, :category, :photo, :date)
+    params.require(:offer).permit(:title, :description, :availability, :price, :active, :place, :category, :photo, :date, :address)
   end
 
 end
