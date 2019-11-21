@@ -7,7 +7,8 @@ class Offer < ApplicationRecord
   @categories = ["Plomberie", "Bricolage", "Jardinage", "Electricite", "Peinture", "Demenagement", "Couture", "Decoration", "Montage meubles", "Electromenager"]
   validates :category, inclusion: { in: @categories }
 
-
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
   # validates :title, presence: true
   # validates :availability, presence: true
   # validates :price, presence: true
