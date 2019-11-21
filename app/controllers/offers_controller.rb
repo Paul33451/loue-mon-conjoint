@@ -6,7 +6,7 @@ skip_before_action :authenticate_user!, only: [:index, :show]
   def index
 
     if params[:keyword].present?
-      @offers = Offer.search_by_title(params[:keyword])
+      @offers = Offer.where("title ILIKE ?", "%#{params[:keyword]}%")
     elsif params[:query].present?
       @offers = Offer.where(category: params[:query])
     else
