@@ -1,11 +1,11 @@
 <div class="offer-navbar">
-  <%= link_to "Retour aux annonces", offers_path, class:"btn-light" %>
+  <%= link_to "Retour", offers_path, class:"btn-light" %>
   <%= link_to "Réserver", new_offer_booking_path(@offer), class:"btn"  %>
 </div>
 
 <div class="offer-container">
 
-  <div class="offer-header d-flex justify-content-between p-2">
+  <div class="offer-header d-flex justify-content-between">
     <div class="offer-photo">
       <% if @offer.user.photo.present? %>
         <%= cl_image_tag @offer.user.photo, class: "offer-photo"%>
@@ -17,23 +17,25 @@
     <div class="offer-summary">
       <div class="offer-tagline d-flex justify-content-between">
         <h2><%= @offer.user.username %></h2>
-        <h2><%= @offer.price %> eur/h</h2>
+        <h2><%= @offer.price %> €/h</h2>
       </div>
       <h3><%= @offer.title%></h3>
        <br>
        <h3><%= @offer.address %></h3>
+      <h3>Pour le : <%= @offer.date%></h3>
+
     </div>
   </div>
 
   <div class="offer-description">
-    <h3><%= @offer.description %> </h3>
+    <h3>Description : <%= @offer.description %> </h3>
   </div>
 
 </div>
 
 <div class="realisation-photo">
-  <% if @offer.user.photo.present? %>
-    <%= cl_image_tag @offer.user.photo, class: "realisation-photo" %>
+  <% if @offer.photo.present? %>
+    <%= cl_image_tag @offer.photo, class: "realisation-photo" %>
   <% else %>
   <img src="https://images.pexels.com/photos/33343/building-joy-planning-plans.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", class="realisation-photo"/>
   <% end %>

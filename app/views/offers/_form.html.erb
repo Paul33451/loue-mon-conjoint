@@ -1,11 +1,12 @@
 
 <div class="form"=>
   <%= simple_form_for @offer do |f| %>
-    <%= f.input :title, label: "Titre" %>
-    <%= f.input :description, as: :text, label: "Description" %>
+    <%= f.input :title, label: "Titre", placeholder: "Je tonds votre petit jardin" %>
+    <%= f.input :description, as: :text, label: "Description", placeholder: "Je tonds, coupe, taille, bref je n'ai pas peur de la brousaille ..." %>
+    <%= f.input :date, label: "Date" %>
     <%= f.input :category, label:"Categorie", collection: ["Plomberie", "Bricolage", "Jardinage", "Electricite", "Peinture", "Demenagement", "Couture", "Decoration", "Montage meubles", "Electromenager"] %>
     <%= f.input :address, label:"Localisation" %>
-    <%= f.input :price,label: "Prix"%>
+    <%= f.input :price,label: "Prix / heure"%>
     <%= f.input :active, label:"Désactiver mon annonce", as: :boolean, checked_value: false, unchecked_value: true %>
     <%= f.input :photo, label: "Télécharger une photo de vos réalisations", required: false%>
     <%= f.input :photo_cache, as: :hidden, required: false %>

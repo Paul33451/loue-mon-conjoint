@@ -1,5 +1,5 @@
 class Offer < ApplicationRecord
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   belongs_to :user
 
   mount_uploader :photo, PhotoUploader
@@ -17,4 +17,11 @@ class Offer < ApplicationRecord
   # validates :category, presence: true, inclusion: { in: @categories }
   # validates :user_id, presence: true, uniqueness: true
 
+
+  include PgSearch::Model
+  pg_search_scope :search_by_title,
+    against: [:title],
+    using: {
+      tsearch: { prefix: true }
+    }
 end

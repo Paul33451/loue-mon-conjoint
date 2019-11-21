@@ -1,11 +1,28 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/33343/building-joy-planning-plans.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
   <div class="container">
     <h1 id="title">Loue mon conjoint </h1>
-    <p><span id="banner-typed-text"></span></p>
-    <a class="btn" href="/offers/new">Publier une annonce</a>
+    <div class="text-js">
+      <p><span id="banner-typed-text"></span></p>
+    </div>
+    <a class="btn btn-pub-annonce" href="/offers/new">Publier une annonce</a>
   </div>
 </div>
 
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-8 col-md-8 col-lg-8">
+      <form novalidate="novalidate" class="simple_form search" id="search-forme" action="/offers" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+        <div class="search-form-control form-group">
+          <input class="form-control string required" type="text" name="keyword" id="search_keyword" />
+          <button name="button" type="submit" class="btn btn-flat">
+            <i class="fas fa-search"></i> Search
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 <div class="category-container overflow-auto">
 

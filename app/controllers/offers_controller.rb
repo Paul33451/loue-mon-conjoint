@@ -4,7 +4,17 @@ skip_before_action :authenticate_user!, only: [:index, :show]
 @categories = ["Plomberie", "Bricolage", "Jardinage", "Electricite", "Peinture", "Demenagement", "Couture", "Decoration", "Montage meubles", "Electromenager"]
 
   def index
-    if params[:query].present?
+    if params[:keyword].present?
+      @offers = Offer.geocoded.where("title ILIKE ?", "%#{params[:keyword]}%")
+      @markers = @offers.map do |offer|
+        {
+          lat: offer.latitude,
+          lng: offer.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { offer: offer }),
+          image_url: helpers.asset_url('picto_balai')
+        }
+      end
+    elsif params[:query].present?
       @offers = Offer.geocoded.where(category: params[:query])
       @markers = @offers.map do |offer|
         {
@@ -61,12 +71,13 @@ skip_before_action :authenticate_user!, only: [:index, :show]
   def destroy
     @offer = Offer.find(params[:id])
     @offer.destroy
+    redirect_to user_path(@offer.user)
   end
 
   private
 
   def offer_params
-    params.require(:offer).permit(:title, :description, :availability, :price, :active, :place, :category, :photo, :address)
+    params.require(:offer).permit(:title, :description, :availability, :price, :active, :place, :category, :photo, :date, :address)
   end
 
 end

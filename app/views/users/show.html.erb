@@ -7,45 +7,41 @@
 
 <div class="container">
   <div class="tab d-flex justify-content-between">
-    <button class="tablinks active">Profil</button>
-    <button class="tablinks">Offers</button>
-    <button class="tablinks">Mission</button>
+    <button class="tablinks active">Annonces</button>
+    <button class="tablinks">Missions</button>
     <button class="tablinks">Reservations</button>
   </div>
 
-  <div id="Profil" class="tabcontent">
-    <h3>Informations Profil</h3>
-    <p>
-      <p>Username : <%= @user.username %></p>
-      <p>Prénom : <%= @user.first_name %></p>
-      <p>Nom : <%= @user.last_name %></p>
-      <p>Email : <%= @user.email %></p>
-      <p>Téléphone : <%= @user.phone_number %></p>
-    </p>
-    <%= link_to "Modifier", edit_user_registration_path, class:"btn mt-4" %>
-  </div>
-
-  <div id="Offers" class="tabcontent not-displayed">
-    <h3>Mes offres</h3>
+  <div id="Annonces" class="tabcontent">
+    <h3>Mes annonces</h3>
     <% if(@user.offers != []) %>
-      <% @user.offers.each do |offer| %>
-        <% p offer %>
-        <div class="card-product">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <div class="card-product-infos">
-            <h2><%= offer.title %></h2>
-            <p><%= offer.description %></p>
+      <div class="row justify-content-center">
+        <% @user.offers.each do |offer| %>
+          <div class="card text-center m-3" style="width: 18rem; margin-bottom: 7px; border-radius: 5px;">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" class="card-img-top" alt="...">
+            <div class="card-body" style="padding: 7px;">
+              <h5 class="card-title"><%= offer.title %></h5>
+              <p class="card-text"><%= offer.description %></p>
+              <p class="card-text">Pour le : <%= offer.date %></p>
+              <div class="card-link-annonce d-flex justify-content-around">
+                <p><%= link_to "Mettre à jour", edit_offer_path(offer.id), class:"btn" %></p>
+                <p style="font-size: 30px; color: #f38c73;">
+                  <%= link_to offer_path(offer), method:"delete" do %>
+                    <i class="fas fa-trash-alt"></i>
+                  <% end %>
+                </p>
+              </div>
+            </div>
           </div>
-          <%= link_to "Mettre à jour", edit_offer_path(offer.id), class:"btn mr-3" %>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     <% else %>
       <p>Vous n'avez pas d'offre en cours !</p>
     <% end %>
-    <%= link_to "Publier une nouvelle offre", new_offer_path, class:"btn" %>
+    <%= link_to "Publier une nouvelle offre", new_offer_path, class:"btn mt-3" %>
   </div>
 
-  <div id="Mission" class="tabcontent not-displayed">
+  <div id="Missions" class="tabcontent not-displayed rounded">
     <h3>Mes missions</h3>
     <% if(@user.offers != []) %>
       <% @user.offers.each do |offer| %>
@@ -60,6 +56,7 @@
                   <ul>
                     <li><%= booking.description %></li>
                     <li><%= booking.adress %></li>
+                    <li>Le : <%= offer.date %></li>
                   </ul>
               </p>
 
@@ -88,12 +85,12 @@
     <h3>Vos réservations</h3>
     <% if(@user.bookings != []) %>
       <% @user.bookings.each do |booking| %>
-        <div class="card-product">
+        <div class="card-product rounded">
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <div class="card-product-infos">
             <h2><%= booking.description %></h2>
             <p><%= booking.adress %></p>
-            <p><%= booking.date %></p>
+            <p><%= booking.offer.date %></p>
           </div>
         </div>
       <% end %>
