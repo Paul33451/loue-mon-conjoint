@@ -45,6 +45,7 @@ skip_before_action :authenticate_user!, only: [:index, :show]
   def destroy
     @offer = Offer.find(params[:id])
     @offer.destroy
+    redirect_to user_path(@offer.user)
   end
 
   private
