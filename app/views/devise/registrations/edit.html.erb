@@ -21,23 +21,23 @@
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
+                hint: "Merci de confirmer votre mot de passe actuel",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
 
 
-    <span class="btn"><%= f.button :submit, "Update" %>
+    <span class="btn"><%= f.button :submit, "Mettre à jour" %>
     </span>
 <% end %>
   </div>
 
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy? <%= link_to "Annuler mon compte", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Retour", :back %>
 </div>
 <%= link_to "déconnexion", destroy_user_session_path, method:'delete' %>
 
