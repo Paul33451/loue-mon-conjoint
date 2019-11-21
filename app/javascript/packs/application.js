@@ -10,4 +10,4 @@ initMapbox();
 
 if (window.location.pathname === "/") {
   loadDynamicBannerText();
-
+}
