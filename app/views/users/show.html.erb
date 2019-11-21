@@ -41,7 +41,7 @@
     <%= link_to "Publier une nouvelle offre", new_offer_path, class:"btn mt-3" %>
   </div>
 
-  <div id="Missions" class="tabcontent not-displayed">
+  <div id="Missions" class="tabcontent not-displayed rounded">
     <h3>Mes missions</h3>
     <% if(@user.offers != []) %>
       <% @user.offers.each do |offer| %>
@@ -85,7 +85,7 @@
     <h3>Vos réservations</h3>
     <% if(@user.bookings != []) %>
       <% @user.bookings.each do |booking| %>
-        <div class="card-product">
+        <div class="card-product rounded">
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <div class="card-product-infos">
             <h2><%= booking.description %></h2>
