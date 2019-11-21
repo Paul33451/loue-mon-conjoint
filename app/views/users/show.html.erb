@@ -22,7 +22,7 @@
       <p>Email : <%= @user.email %></p>
       <p>Téléphone : <%= @user.phone_number %></p>
     </p>
-    <%= link_to "Modifier", edit_user_registration_path, class:"btn mt-4" %>
+    <%= link_to "Modifier", edit_user_registration_path, class:"btn mt-4 modif-profil" %>
   </div>
 
   <div id="Offers" class="tabcontent not-displayed">
@@ -35,6 +35,7 @@
           <div class="card-product-infos">
             <h2><%= offer.title %></h2>
             <p><%= offer.description %></p>
+            <p>Pour le : <%= offer.date %></p>
           </div>
           <%= link_to "Mettre à jour", edit_offer_path(offer.id), class:"btn mr-3" %>
         </div>
@@ -60,6 +61,7 @@
                   <ul>
                     <li><%= booking.description %></li>
                     <li><%= booking.adress %></li>
+                    <li>Le : <%= offer.date %></li>
                   </ul>
               </p>
 

@@ -50,7 +50,7 @@ skip_before_action :authenticate_user!, only: [:index, :show]
   private
 
   def offer_params
-    params.require(:offer).permit(:title, :description, :availability, :price, :active, :place, :category, :photo)
+    params.require(:offer).permit(:title, :description, :availability, :price, :active, :place, :category, :photo, :date)
   end
 
 end

@@ -23,13 +23,13 @@ eric.save!
 # Offers
 puts "==========================="
 puts "Creating Offers"
-puts "===========================@"
+puts "==========================="
 
-offer1 = Offer.new(title: "Bricolage petits travaux", description: "Bob Lebricoleur Bricole", price: "12€/h", active: true, place:"Bordeaux", category: "Bricolage", user: bob)
+offer1 = Offer.new(title: "Bricolage petits travaux", description: "Bob Lebricoleur Bricole", price: "12€/h", active: true, place:"Bordeaux", category: "Bricolage", user: bob, date: "2019/12/1")
 
-offer2 = Offer.new(title: "Peinture", description: "Alice peint toutes pieces", price: "9€/h", active: true, place:"Paris", category: "Bricolage", user: alice)
+offer2 = Offer.new(title: "Peinture", description: "Alice peint toutes pieces", price: "9€/h", active: true, place:"Paris", category: "Bricolage", user: alice, date: "2019/12/5")
 
-offer3 = Offer.new(title: "Plomberie", description: "Charlie fait de la plomberie (en plus ça rime !)", price: "157€/h", active: true, place:"Brétigny sur Orge", category: "Plomberie", user: charlie)
+offer3 = Offer.new(title: "Plomberie", description: "Charlie fait de la plomberie (en plus ça rime !)", price: "157€/h", active: true, place:"Brétigny sur Orge", category: "Plomberie", user: charlie, date: "2019/12/24")
 
 offer1.save!
 offer2.save!
