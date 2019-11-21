@@ -4,9 +4,18 @@ skip_before_action :authenticate_user!, only: [:index, :show]
 @categories = ["Plomberie", "Bricolage", "Jardinage", "Electricite", "Peinture", "Demenagement", "Couture", "Decoration", "Montage meubles", "Electromenager"]
 
   def index
-
+    dates = params[:search]
+    @start_date = dates[:starts_at].to_date
+    @end_date = dates[:ends_at].to_date
+    offers = Offer.all
+    offers.each do |offer|
+      offer.date
+    end
     if params[:keyword].present?
-      @offers = Offer.where("title ILIKE ?", "%#{params[:keyword]}%")
+      sql_query = "offers.title ILIKE :keyword AND CONVERT(offers.date, DATETIME)"
+      @offers = Offer.where(sql_query, keyword: "%#{params[:keyword]}%")
+      # @offers = Offer.where("title ILIKE ?", "%#{params[:keyword]}%")
+      # @offers = Offer.where("title ILIKE ?", "%#{params[:date]}%")
     elsif params[:query].present?
       @offers = Offer.where(category: params[:query])
     else
