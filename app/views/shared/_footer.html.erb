@@ -13,7 +13,7 @@
     <% if user_signed_in? %>
       <%= link_to user_path(current_user), class: "card" do %>
       <i class="far fa-user"></i>
-      <h5 class="card-title">Mon compte</h5>
+      <h5 class="card-title">En cours</h5>
       <% end %>
     <% else %>
       <%= link_to new_user_session_path, class: "card" do %>
