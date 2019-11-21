@@ -3,9 +3,6 @@
 
 <%= simple_form_for [@offer, @booking] do |f| %>
   <%= f.input :adress %>
-  <%= f.input :date, as: :date, start_year: Date.today.year,
-                             end_year: Date.today.year + 90, discard_year: true,
-                             order: [:day, :month, :year] %>
   <%= f.submit "Reserver", class: "btn" %>
 <% end %>
 </div>
