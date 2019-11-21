@@ -7,26 +7,13 @@
 
 <div class="container">
   <div class="tab d-flex justify-content-between">
-    <button class="tablinks active">Profil</button>
-    <button class="tablinks">Offers</button>
-    <button class="tablinks">Mission</button>
+    <button class="tablinks active">Annonces</button>
+    <button class="tablinks">Missions</button>
     <button class="tablinks">Reservations</button>
   </div>
 
-  <div id="Profil" class="tabcontent">
-    <h3>Informations Profil</h3>
-    <p>
-      <p>Username : <%= @user.username %></p>
-      <p>Prénom : <%= @user.first_name %></p>
-      <p>Nom : <%= @user.last_name %></p>
-      <p>Email : <%= @user.email %></p>
-      <p>Téléphone : <%= @user.phone_number %></p>
-    </p>
-    <%= link_to "Modifier", edit_user_registration_path, class:"btn mt-4" %>
-  </div>
-
-  <div id="Offers" class="tabcontent not-displayed">
-    <h3>Mes offres</h3>
+  <div id="Annonces" class="tabcontent">
+    <h3>Mes annonces</h3>
     <% if(@user.offers != []) %>
       <% @user.offers.each do |offer| %>
         <% p offer %>
@@ -35,6 +22,7 @@
           <div class="card-product-infos">
             <h2><%= offer.title %></h2>
             <p><%= offer.description %></p>
+            <p>Pour le : <%= offer.date %></p>
           </div>
           <%= link_to "Mettre à jour", edit_offer_path(offer.id), class:"btn mr-3" %>
         </div>
@@ -45,7 +33,7 @@
     <%= link_to "Publier une nouvelle offre", new_offer_path, class:"btn" %>
   </div>
 
-  <div id="Mission" class="tabcontent not-displayed">
+  <div id="Missions" class="tabcontent not-displayed">
     <h3>Mes missions</h3>
     <% if(@user.offers != []) %>
       <% @user.offers.each do |offer| %>
@@ -60,6 +48,7 @@
                   <ul>
                     <li><%= booking.description %></li>
                     <li><%= booking.adress %></li>
+                    <li>Le : <%= offer.date %></li>
                   </ul>
               </p>
 
