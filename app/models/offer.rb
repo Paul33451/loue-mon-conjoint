@@ -4,7 +4,7 @@ class Offer < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
-  @categories = ["Plomberie", "Bricolage", "Jardinage", "Electricite", "Peinture", "Demenagement", "Couture", "Decoration", "Montage meubles", "Electromenager"]
+  @categories = ["Plomberie", "Bricolage", "Jardinage", "Electricite", "Peinture", "Demenagement", "Couture", "Decoration", "Montage meubles", "Electromenager", "Petits-travaux"]
   validates :category, inclusion: { in: @categories }
 
   geocoded_by :address
