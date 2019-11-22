@@ -8,3 +8,4 @@ import { loadDynamicBannerText } from '../components/banner';
 if (window.location.pathname === "/") {
   loadDynamicBannerText();
 }
+
