@@ -22,17 +22,13 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Acceuil", "/", class: "dropdown-item" %>
-        </li>
-
-        <li class="nav-item dropdown">
-          <%= link_to "Tableau de bord", user_path(current_user), class: "dropdown-item"%>
+          <%= link_to "Accueil", "/", class: "dropdown-item" %>
         </li>
         <li>
-          <%= link_to "Profil", edit_user_registration_path, method: :get, class: "dropdown-item"%>
+          <%= link_to "Profil", profile_path, method: :get, class: "dropdown-item"%>
         </li>
         <li>
-          <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item"%>
+          <%= link_to "Déconnexion", destroy_user_session_path(:authenticity_token => form_authenticity_token()), method: :delete, class: "dropdown-item"%>
 
         </li>
       <% else %>

@@ -13,12 +13,11 @@
   </div>
 
   <div id="Annonces" class="tabcontent">
-    <h3>Mes annonces</h3>
     <% if(@user.offers != []) %>
       <div class="row justify-content-center">
         <% @user.offers.each do |offer| %>
-          <div class="card text-center m-3" style="width: 18rem; margin-bottom: 7px; border-radius: 5px;">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" class="card-img-top" alt="...">
+          <div class="card text-center m-3" style="width: 18rem; margin-bottom: 7px; border-radius: 5px;" data-offer-id="<%= offer.id %>">
+          <%= cl_image_tag offer.photo, class: "card-img-top"%>
             <div class="card-body" style="padding: 7px;">
               <h5 class="card-title"><%= offer.title %></h5>
               <p class="card-text"><%= offer.description %></p>
@@ -26,7 +25,7 @@
               <div class="card-link-annonce d-flex justify-content-around">
                 <p><%= link_to "Mettre à jour", edit_offer_path(offer.id), class:"btn" %></p>
                 <p style="font-size: 30px; color: #f38c73;">
-                  <%= link_to offer_path(offer), method:"delete" do %>
+                  <%= link_to offer_path(offer), method: :delete, remote: true do %>
                     <i class="fas fa-trash-alt"></i>
                   <% end %>
                 </p>
@@ -41,12 +40,11 @@
     <%= link_to "Publier une nouvelle offre", new_offer_path, class:"btn mt-3" %>
   </div>
 
-  <div id="Missions" class="tabcontent not-displayed">
-    <h3>Mes missions</h3>
+  <div id="Missions" class="tabcontent not-displayed rounded">
     <% if(@user.offers != []) %>
       <% @user.offers.each do |offer| %>
         <% offer.bookings.each do |booking| %>
-          <div class="card text-center mb-4">
+          <div class="card text-center mb-4" data-booking-id="<%= booking.id %>">
             <div class="card-header">
               <%= offer.category %>
             </div>
@@ -65,7 +63,7 @@
               <% else %>
                 <%= link_to "Accepter", booking_accept_path(booking), method:"patch", class:"btn" %>
               <% end %>
-              <%= link_to booking_path(booking), method:'delete' do %>
+              <%= link_to booking_path(booking), method: :delete, remote: true do %>
                 <button type="button" class="btn">Refuser</button>
               <% end %>
             </div>
@@ -82,11 +80,10 @@
   </div>
 
   <div id="Reservations" class="tabcontent not-displayed">
-    <h3>Vos réservations</h3>
     <% if(@user.bookings != []) %>
       <% @user.bookings.each do |booking| %>
-        <div class="card-product">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product rounded">
+          <%= cl_image_tag booking.offer.photo%>
           <div class="card-product-infos">
             <h2><%= booking.description %></h2>
             <p><%= booking.adress %></p>

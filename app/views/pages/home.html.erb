@@ -8,10 +8,12 @@
   </div>
 </div>
 
+
 <div class="container mt-3 ">
   <div class="row justify-content-center">
-    <div class="form col-12 col-sm-8 col-md-8 col-lg-8">
+    <div class="col-12 col-sm-8 col-md-8 col-lg-8">
       <form novalidate="novalidate" class="simple_form search" id="search-forme" action="/offers" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+
         <div class="form-wrapper">
           <div class="row justify-content-center">
             <div class="col-12 col-sm-4 col-md-4 col-lg-4">
@@ -28,10 +30,11 @@
               </div>
           </div>
         </div>
+
         <div class="search-form-control form-group">
-          <input class="form-control string required" type="text" name="keyword" id="search_keyword" placeholder="Que recherchez-vous?" />
+          <input class="form-control string required" type="text" name="keyword" id="search_keyword" />
           <button name="button" type="submit" class="btn btn-flat">
-            <i class="fas fa-search"></i> Trouver
+            <i class="fas fa-search"></i> Search
           </button>
           <% end %>
         </div>
@@ -60,37 +63,37 @@
     </div>
   <% end %>
 
-  <%= link_to offers_path(query: "demenagement") do %>
+  <%= link_to offers_path(query: "Demenagement") do %>
     <div class="cards-category" style="background-image: url( <%= image_path 'demenagement.png'%>)">
       Déménagement
     </div>
   <% end %>
 
-  <%= link_to offers_path(query: "electricite") do %>
+  <%= link_to offers_path(query: "Electricite") do %>
     <div class="cards-category" style="background-image: url( <%= image_path 'electricite.png'%>)">
       Electricité
     </div>
   <% end %>
 
-  <%= link_to offers_path(query: "electromenager") do %>
+  <%= link_to offers_path(query: "Electromenager") do %>
     <div class="cards-category" style="background-image: url( <%= image_path 'electromenager.png'%>)">
       Electroménager
     </div>
   <% end %>
 
-  <%= link_to offers_path(query: "jardinage") do %>
+  <%= link_to offers_path(query: "Jardinage") do %>
     <div class="cards-category" style="background-image: url( <%= image_path 'jardinage.png'%>)">
       Jardinage
     </div>
   <% end %>
 
-  <%= link_to offers_path(query: "peinture") do %>
+  <%= link_to offers_path(query: "Peinture") do %>
     <div class="cards-category" style="background-image: url( <%= image_path 'peinture.png'%>)">
       Peinture
     </div>
   <% end %>
 
-  <%= link_to offers_path(query: "petits-travaux") do %>
+  <%= link_to offers_path(query: "Petits-travaux") do %>
     <div class="cards-category" style="background-image: url( <%= image_path 'petits-travaux.png'%>)">
       Petits travaux
     </div>

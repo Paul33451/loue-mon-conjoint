@@ -2,7 +2,8 @@
 <h2>Réserver <%= @offer.title %></h2>
 
 <%= simple_form_for [@offer, @booking] do |f| %>
-  <%= f.input :adress %>
+  <%= f.input :adress, label: 'Votre addresse', placeholder: '23 avenue des anneaux, Saturne' %>
+  <%= f.input :description, label: 'Description du service', placeholder: "Virer la ceinture d'asteroïdes de ma vue !" %>
   <%= f.submit "Reserver", class: "btn" %>
 <% end %>
 </div>
