@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   end
 
   patch '/bookings/:id', to: 'bookings#accept', as: 'booking_accept'
+  get '/pages/profile', to: 'pages#profile', as: 'profile'
 end
