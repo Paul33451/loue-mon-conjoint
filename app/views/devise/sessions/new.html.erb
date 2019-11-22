@@ -1,9 +1,9 @@
 
 
-  <div class="form">
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <h2>Vous avez déjà un compte ? </h2>
-  <h3 class= "mt-2 mb-2">Merci de vous identifier </h3>
+  <div class="form" style="padding-bottom: 20px;">
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <h2>Vous avez déjà un compte ? </h2>
+    <h3 class= "mt-2 mb-2">Merci de vous identifier </h3>
       <%= f.input :email,
                   required: false,
                   autofocus: true,
@@ -11,12 +11,12 @@
       <%= f.input :password, label: "Mot de passe", required: false,
                   input_html: { autocomplete: "current-password" } %>
       <%= f.input :remember_me, label: "Se souvenir de moi", as: :boolean if devise_mapping.rememberable? %>
+      <%= f.button :submit, "Connexion !" %>
+      <br>
+      <br>
       <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
         <%= link_to "Mot de passe oublié?", new_password_path(resource_name), class:"btn-light" %>
       <% end %>
-      <br>
-      <br>
-      <%= f.button :submit, "Connexion !" %>
     <% end %>
   </div>
 

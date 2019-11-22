@@ -71,7 +71,6 @@ skip_before_action :authenticate_user!, only: [:index, :show]
   def destroy
     @offer = Offer.find(params[:id])
     @offer.destroy
-    redirect_to user_path(@offer.user)
   end
 
   private
@@ -79,5 +78,4 @@ skip_before_action :authenticate_user!, only: [:index, :show]
   def offer_params
     params.require(:offer).permit(:title, :description, :availability, :price, :active, :place, :category, :photo, :date, :address)
   end
-
 end
