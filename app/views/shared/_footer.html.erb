@@ -1,22 +1,22 @@
 
-<div class="footer-container d-flex justify-content-around fixed-bottom">
-    <%= link_to "/", class: "card" do %>
+<div class="footer-container fixed-bottom row">
+    <%= link_to "/", class: "card col" do %>
       <i class="fas fa-search"></i>
-      <h5 class="card-title">Chercher</h5>
+      <h5 class="card-title">Recherche</h5>
     <% end %>
 
-    <%= link_to new_offer_path, class: "card" do %>
+    <%= link_to new_offer_path, class: "card col" do %>
       <i class="far fa-plus-square"></i>
       <h5 class="card-title">Publier</h5>
     <% end %>
 
     <% if user_signed_in? %>
-      <%= link_to user_path(current_user), class: "card" do %>
-      <i class="far fa-user"></i>
-      <h5 class="card-title">En cours</h5>
+      <%= link_to user_path(current_user), class: "card col" do %>
+      <i class="far fa-calendar"></i>
+      <h5 class="card-title">Tableau de bord</h5>
       <% end %>
     <% else %>
-      <%= link_to new_user_session_path, class: "card" do %>
+      <%= link_to new_user_session_path, class: "card col" do %>
       <i class="far fa-user"></i>
       <h5 class="card-title">Connexion</h5>
     <% end %>
