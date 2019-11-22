@@ -17,7 +17,7 @@
     <% if(@user.offers != []) %>
       <div class="row justify-content-center">
         <% @user.offers.each do |offer| %>
-          <div class="card text-center m-3" style="width: 18rem; margin-bottom: 7px; border-radius: 5px;">
+          <div class="card text-center m-3" style="width: 18rem; margin-bottom: 7px; border-radius: 5px;" data-offer-id="<%= offer.id %>">
             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" class="card-img-top" alt="...">
             <div class="card-body" style="padding: 7px;">
               <h5 class="card-title"><%= offer.title %></h5>
@@ -26,7 +26,7 @@
               <div class="card-link-annonce d-flex justify-content-around">
                 <p><%= link_to "Mettre à jour", edit_offer_path(offer.id), class:"btn" %></p>
                 <p style="font-size: 30px; color: #f38c73;">
-                  <%= link_to offer_path(offer), method:"delete" do %>
+                  <%= link_to offer_path(offer), method: :delete, remote: true do %>
                     <i class="fas fa-trash-alt"></i>
                   <% end %>
                 </p>
