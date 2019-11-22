@@ -4,25 +4,15 @@ skip_before_action :authenticate_user!, only: [:index, :show]
 @categories = ["Plomberie", "Bricolage", "Jardinage", "Electricite", "Peinture", "Demenagement", "Couture", "Decoration", "Montage meubles", "Electromenager"]
 
   def index
-    dates = params[:search]
-    start_date = dates[:starts_at].to_date
-    end_date = dates[:ends_at].to_date
-
     if params[:keyword].present?
-      sql_query = "offers.title ILIKE :keyword"
-      offers_temp = Offer.where(sql_query, keyword: "%#{params[:keyword]}%")
-      @offers = offers_temp.select do |offer|
-        offer.date.to_date >= start_date && offer.date.to_date <= end_date
-
-      if params[:keyword].present?
-        @offers = Offer.geocoded.where("title ILIKE ?", "%#{params[:keyword]}%")
-        @markers = @offers.map do |offer|
-          {
-            lat: offer.latitude,
-            lng: offer.longitude,
-            infoWindow: render_to_string(partial: "info_window", locals: { offer: offer }),
-            image_url: helpers.asset_url('picto_balai.png')
-          }
+      @offers = Offer.geocoded.where("title ILIKE ?", "%#{params[:keyword]}%")
+      @markers = @offers.map do |offer|
+        {
+          lat: offer.latitude,
+          lng: offer.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { offer: offer }),
+          image_url: helpers.asset_url('picto_balai.png')
+        }
       end
     elsif params[:query].present?
       @offers = Offer.geocoded.where(category: params[:query])
