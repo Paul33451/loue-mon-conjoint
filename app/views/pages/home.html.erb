@@ -13,7 +13,7 @@
   <div class="row justify-content-center">
     <div class="form col-12 col-sm-8 col-md-8 col-lg-8">
       <form novalidate="novalidate" class="simple_form search" id="search-forme" action="/offers" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-        <div class="form-wrapper" >
+        <div class="form-wrapper">
           <div class="row justify-content-center">
             <div class="col-12 col-sm-4 col-md-4 col-lg-4">
               <div class="content_position">
@@ -27,7 +27,6 @@
               <div class="col-12 col-sm-4 col-md-4 col-lg-4 font_label">
                 <%= f.input :ends_at, start_year: Date.today.year, label:"Fin", as: :string, required: false, input_html: {class: "datepicker"} %>
               </div>
-            <% end %>
           </div>
         </div>
         <div class="search-form-control form-group">
@@ -35,6 +34,7 @@
           <button name="button" type="submit" class="btn btn-flat">
             <i class="fas fa-search"></i> Trouver
           </button>
+          <% end %>
         </div>
       </form>
     </div>
