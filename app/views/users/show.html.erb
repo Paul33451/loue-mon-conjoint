@@ -13,12 +13,11 @@
   </div>
 
   <div id="Annonces" class="tabcontent">
-    <h3>Mes annonces</h3>
     <% if(@user.offers != []) %>
       <div class="row justify-content-center">
         <% @user.offers.each do |offer| %>
           <div class="card text-center m-3" style="width: 18rem; margin-bottom: 7px; border-radius: 5px;" data-offer-id="<%= offer.id %>">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" class="card-img-top" alt="...">
+          <%= cl_image_tag offer.photo, class: "card-img-top"%>
             <div class="card-body" style="padding: 7px;">
               <h5 class="card-title"><%= offer.title %></h5>
               <p class="card-text"><%= offer.description %></p>
@@ -42,7 +41,6 @@
   </div>
 
   <div id="Missions" class="tabcontent not-displayed rounded">
-    <h3>Mes missions</h3>
     <% if(@user.offers != []) %>
       <% @user.offers.each do |offer| %>
         <% offer.bookings.each do |booking| %>
@@ -82,11 +80,10 @@
   </div>
 
   <div id="Reservations" class="tabcontent not-displayed">
-    <h3>Vos réservations</h3>
     <% if(@user.bookings != []) %>
       <% @user.bookings.each do |booking| %>
         <div class="card-product rounded">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <%= cl_image_tag booking.offer.photo%>
           <div class="card-product-infos">
             <h2><%= booking.description %></h2>
             <p><%= booking.adress %></p>
