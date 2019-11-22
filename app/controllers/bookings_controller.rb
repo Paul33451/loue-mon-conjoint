@@ -22,7 +22,6 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to user_path(current_user)
   end
 
   def accept

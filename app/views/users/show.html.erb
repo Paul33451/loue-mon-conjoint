@@ -46,7 +46,7 @@
     <% if(@user.offers != []) %>
       <% @user.offers.each do |offer| %>
         <% offer.bookings.each do |booking| %>
-          <div class="card text-center mb-4">
+          <div class="card text-center mb-4" data-booking-id="<%= booking.id %>">
             <div class="card-header">
               <%= offer.category %>
             </div>
@@ -65,7 +65,7 @@
               <% else %>
                 <%= link_to "Accepter", booking_accept_path(booking), method:"patch", class:"btn" %>
               <% end %>
-              <%= link_to booking_path(booking), method:'delete' do %>
+              <%= link_to booking_path(booking), method: :delete, remote: true do %>
                 <button type="button" class="btn">Refuser</button>
               <% end %>
             </div>
